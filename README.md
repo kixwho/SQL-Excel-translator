@@ -1,6 +1,6 @@
 # SQL Excel translator
 
-| Function | Standard SQL | PostgreSQL Specific  | Excel |
+| Task | Standard SQL | PostgreSQL Specific  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
 | Conditional aggregation  | SUM(CASE WHEN _retention = TRUE_ THEN 1 ELSE 0 END)  | COUNT(*) **FILTER** (WHERE _retention = TRUE_)  | =**COUNTIF**(A:A, TRUE)  |
 | Horizontal string concatenation  | **CONCAT**(A, ' - ', B)  | A2 \|\| " - " \|\| B2  | =A2 **&** " - " & B2  |
