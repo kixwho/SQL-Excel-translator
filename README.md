@@ -2,7 +2,7 @@
 
 | Task | Standard SQL | PostgreSQL Specific  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
-| Conditional aggregation  | SUM(CASE WHEN _retention = TRUE_ THEN 1 ELSE 0 END)  | COUNT(*) **FILTER** (WHERE _retention = TRUE_)  | =**COUNTIF**(A:A, TRUE)  |
+| Conditional aggregation  | SUM(CASE WHEN retention = TRUE THEN 1 ELSE 0 END)  | COUNT(*) **FILTER** (WHERE retention = TRUE)  | =**COUNTIF**(A:A, TRUE)  |
 | Horizontal string concatenation  | **CONCAT**(A, ' - ', B)  | A2 \|\| " - " \|\| B2  | =A2 **&** " - " & B2  |
 | Vertical string concatenation  | **STRING_AGG**(column, ', ')  | GROUP_CONCAT (MySQL only)  | TEXTJOIN  |
 | Convert timestamp to text/string  | DATE_FORMAT(date, '%Y-%m')  | TO_CHAR(date, 'YYYY-MM')  | =TEXT(A2,"yyyy-mm-dd")  |
