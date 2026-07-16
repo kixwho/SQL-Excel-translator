@@ -1,6 +1,6 @@
 # SQL Excel translator
 
-| Task | Standard SQL | PostgreSQL Specific  | Excel |
+| Task | Standard SQL | SQL Dialect (default=PostgreSQL)  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
 | Conditional aggregation  | SUM(CASE WHEN retention = TRUE THEN 1 ELSE 0 END)  | COUNT(*) **FILTER** (WHERE retention = TRUE)  | =**COUNTIF**(A:A, TRUE)  |
 | Horizontal string concatenation  | **CONCAT**(A, ' - ', B)  | A2 \|\| " - " \|\| B2  | =A2 **&** " - " & B2  |
@@ -13,12 +13,13 @@
 | Substring  | **SUBSTR**(A, 4, 2)  |   | =**MID**(A2, 4, 2)  |
 | Average  | **AVG**  |   | =**AVERAGE**(A:A)  |
 | Rounding (same)  | ROUND(col, 2)  |   | =ROUND(A:A, 2)  |
-| Sorting  | ORDER BY  |   | Sort A→Z  |
 | Remove duplicates  | DISTINCT  |   | Data ribbon → Remove Duplicates  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Sorting  | ORDER BY  |   | Sort A→Z  |
 | Pivot table  | SELECT Region, SUM(Revenue) GROUP BY Region  |   | "Sum Revenue by Region"  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 
 
+## special note on
 SQL can comfortably join tables with millions of rows when properly designed, whereas Excel XLOOKUP across multiple tables can get too memory-intensive and slow. For the same task, even Python's equivalent, pandas.merge(), has limitations because it operates in memory.
 
 (Interestingly, Power Query in Excel does have a true Merge operation, which is much closer to SQL JOIN.)
