@@ -3,8 +3,8 @@
 | Task | Standard SQL | SQL Dialect (default=PostgreSQL)  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
 | Conditional aggregation  | SUM(CASE WHEN retention = TRUE THEN 1 ELSE 0 END)  | COUNT(*) **FILTER** (WHERE retention = TRUE)  | =**COUNTIF**(A:A, TRUE)  |
-| Horizontal string concatenation  | **CONCAT**(A, ' - ', B)  | A2 \|\| " - " \|\| B2  | =A2 **&** " - " & B2  |
-| Vertical string concatenation  | **STRING_AGG**(column, ', ')  | GROUP_CONCAT (MySQL only)  | TEXTJOIN  |
+| String concatenation - Horizontal  | **CONCAT**(A, ' - ', B)  | A2 \|\| " - " \|\| B2  | =A2 **&** " - " & B2  |
+| String concatenation - Vertical  | **STRING_AGG**(column, ', ')  | GROUP_CONCAT (MySQL only)  | TEXTJOIN  |
 | Convert timestamp to text/string  | DATE_FORMAT(date, '%Y-%m')  | TO_CHAR(date, 'YYYY-MM')  | =TEXT(A2,"yyyy-mm-dd")  |
 | Conditional Logic  | **CASE** WHEN A>5 THEN 'High' ELSE 'Low' END  |   | =**IF**(A2>5, "High", "Low")  |
 | Look up across tables  | **JOIN** (_or subquery_)  |   | XLOOKUP/VLOOKUP  |
