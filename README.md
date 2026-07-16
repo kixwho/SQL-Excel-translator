@@ -23,3 +23,5 @@
 SQL can comfortably join tables with millions of rows when properly designed, whereas Excel XLOOKUP across multiple tables can get too memory-intensive and slow. For the same task, even Python's equivalent, pandas.merge(), has limitations because it operates in memory.
 
 (Interestingly, Power Query in Excel does have a true Merge operation, which is much closer to SQL JOIN.)
+
+Don't highlight syntax you almost never use. or intuitive
