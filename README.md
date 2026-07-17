@@ -1,8 +1,4 @@
-<img width="656" height="155" alt="image" src="https://github.com/user-attachments/assets/ce29d9ff-ad8b-43a3-828b-0f88c14ba2e7" />
-
-**Guide**
-* SQL → start from TOP
-* Excel → start from BOTTOM
+<img width="851" height="155" alt="image" src="https://github.com/user-attachments/assets/69284862-aa22-483d-8c23-a32dd799dd87" />
 
 | Task | Standard SQL | SQL Dialect (default=PostgreSQL)  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
