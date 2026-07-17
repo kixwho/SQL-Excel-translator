@@ -1,4 +1,4 @@
-<img width="765" height="155" alt="image" src="https://github.com/user-attachments/assets/46c71b60-3c01-411c-9301-c8e3e9b2144f" />
+<img width="656" height="155" alt="image" src="https://github.com/user-attachments/assets/ce29d9ff-ad8b-43a3-828b-0f88c14ba2e7" />
 
 
 | Task | Standard SQL | SQL Dialect (default=PostgreSQL)  | Excel |
