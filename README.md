@@ -1,4 +1,5 @@
-# SQL Excel translator
+<img width="765" height="155" alt="image" src="https://github.com/user-attachments/assets/46c71b60-3c01-411c-9301-c8e3e9b2144f" />
+
 
 | Task | Standard SQL | SQL Dialect (default=PostgreSQL)  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
