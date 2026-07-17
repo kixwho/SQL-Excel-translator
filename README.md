@@ -22,5 +22,3 @@
 
 ## 🤔 A special note on Excel Lookup and SQL JOIN
 
-
-Don't highlight syntax you almost never use. or intuitive
