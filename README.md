@@ -26,4 +26,3 @@ SQL can comfortably join tables with millions of rows when properly designed, wh
 (Interestingly, Power Query in Excel does have a true Merge operation, which is much closer to SQL JOIN.)
 
 Don't highlight syntax you almost never use. or intuitive
-col means column
