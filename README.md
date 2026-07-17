@@ -1,5 +1,8 @@
 <img width="656" height="155" alt="image" src="https://github.com/user-attachments/assets/ce29d9ff-ad8b-43a3-828b-0f88c14ba2e7" />
 
+**Guide**
+* SQL → start from TOP
+* Excel → start from BOTTOM
 
 | Task | Standard SQL | SQL Dialect (default=PostgreSQL)  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
@@ -17,8 +20,19 @@
 | Remove duplicates  | DISTINCT  |   | Data ribbon → Remove Duplicates  |
 | Sorting  | ORDER BY  |   | Sort A→Z  |
 | Pivot table  | SELECT Region, SUM(Revenue) GROUP BY Region  |   | "Sum Revenue by Region"  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 
 
 ## 🤔 A special note on Excel Lookup and SQL JOIN
+Intuitively, Excel's Lookup functions are actually closer in feeling to a SQL subquery. The underlying logic is almost identical. A formula such as
 
+    =VLOOKUP(H18, price_lookup, 2, False)
+
+maps directly to a query with nested structure:
+
+<img width="372" height="162" alt="image" src="https://github.com/user-attachments/assets/b3562642-b840-4af7-8403-140761972341" />
+
+<p>
+
+But I think the most fitting translation for a lookup is JOIN because although the approaches differ, they ultimately perform the **same pillar task in practice**. After all, in a typical JOIN query, you'd select only the columns that are needed anyway. For this task, JOINs scale more naturally and remain readable even as the number of tables grows.
+
+Speaking of powerful, SQL users will appreciate how a properly designed JOIN can comfortably bring together tables with millions of rows! As essential as Excel Lookups are, cross-referencing on the same scale is too memory-intensive and slow. Even Python's equivalent, pandas.merge(), has limitations because it also operates in memory.
