@@ -1,6 +1,6 @@
 <img width="851" height="155" alt="image" src="https://github.com/user-attachments/assets/69284862-aa22-483d-8c23-a32dd799dd87" />
 
-| Task | Standard SQL | SQL Dialect (default=PostgreSQL)  | Excel |
+| Task | SQL | SQL Dialect (default=PostgreSQL)  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
 | Conditional aggregation  | SUM(CASE WHEN retention = TRUE THEN 1 ELSE 0 END)  | COUNT(*) **FILTER** (WHERE retention = TRUE)  | =**COUNTIF**(A:A, TRUE)  |
 | String concatenation - Horizontal  | **CONCAT**(A, ' - ', B)  | A \|\| ' - ' \|\| B  | =A2 **&** " - " & B2  |
