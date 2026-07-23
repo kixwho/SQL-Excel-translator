@@ -1,5 +1,7 @@
 <img width="851" height="155" alt="image" src="https://github.com/user-attachments/assets/69284862-aa22-483d-8c23-a32dd799dd87" />
 
+Need a shorter reference? [SQL cheatsheet](https://github.com/kixwho/PostgreSQL-cheatsheet)
+
 | Task | SQL | SQL Dialect (default=PostgreSQL)  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
 | Moving average (e.g. 5-day) | **AVG**(price) **OVER** (ORDER BY date ROWS BETWEEN 4 PRECEDING AND CURRENT ROW) |  | =AVERAGE(A2:A6) → drag down |
@@ -10,7 +12,7 @@
 | Conditional Logic  | **CASE** WHEN A>5 THEN 'High' ELSE 'Low' END  |   | =**IF**(A2>5, "High", "Low")  |
 | Find values missing from another table  | WHERE NOT EXISTS (**anti-join**\*)  |   | Manual filtering  |
 | Unexpected JOIN row multiplication (fanout)  | Check **PRIMARY KEY** / key uniqueness before JOIN  |   | Lookup functions **assume** single, unique match  |
-| [Look up across tables](#-a-special-note-on-excel-lookup-and-sql-join)  | JOIN (_or subquery_)  |   | XLOOKUP/VLOOKUP  |
+| [Look up across tables](#-a-special-note-on-excel-lookup-and-sql-join)  | JOIN (or subquery)  |   | XLOOKUP/VLOOKUP  |
 | Wildcard (any number of characters)  | WHERE Singer LIKE **'S%'**  |   | =COUNTIF(Singer,**"S\*"**)  |
 | Wildcard (exactly one character)  | WHERE Singer LIKE **'_____'**  |   | =COUNTIF(Singer,**"?????"**)  |
 | Substring  | **SUBSTR**(A, 4, 2)  |   | =**MID**(A2, 4, 2)  |
