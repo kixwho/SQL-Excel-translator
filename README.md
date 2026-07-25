@@ -30,9 +30,29 @@ Need a shorter reference? [SQL cheatsheet](https://github.com/kixwho/PostgreSQL-
 | ------------- | ------------- | ------------- |
 | Behavior  | Unexpected row multiplication after JOIN  | Lookup functions assume single, unique match  |
 | Visual Clues (use the query below to isolate problematic keys)  | Nearly identical rows clustered right next to each other  |   |
-| Fix  | Match table granularity. Tables with composite key (or event tables) especially vulnerable  |   |
+| Fix  | Match table granularity. Composite-key tables (e.g. transaction records) are especially vulnerable  |   |
 | Failure Mode  | **No error, valid-looking wrong answer**  | Errors such as #SPILL!  |
 | Habit for Success  | Checking visually not sustainable. Need to understand table logic  | Often working visually, shape mismatch immediately visible  |
+
+<br>
+    
+        -- Practical fanout debugging
+        
+        SELECT join_key, COUNT(*) AS row_ct
+        FROM joined_table
+        GROUP BY join_key
+        HAVING COUNT(*) > 10
+        ORDER BY row_ct DESC;
+
+- [ ] Inspect the most duplicated keys first
+- [ ] Repeated clusters → strong clue that JOIN may have fanned out
+- [ ] Confirm by checking table grain and **key uniqueness**
+
+Excel users are familiar with #SPILL! errors: a formula returns more results than expected, and Excel forces you to resolve the shape mismatch. SQL behaves differently. JOINs can silently expand rows because returning multiple matches is a perfectly valid relational operation. Subqueries are not immune, although they make it harder to fanout -- a subquery will sometimes error if there's a shape mismatch (depends on the query).
+
+Ultimately an analyst's responsibility shifts from fixing errors to understanding table relationships.
+
+[My repo on Fanout]()
 
 ## 🤔 A special note on Excel Lookup and SQL JOIN
 Intuitively, Excel's Lookup functions are actually closer in feeling to a SQL subquery. The underlying logic is almost identical. A formula such as
