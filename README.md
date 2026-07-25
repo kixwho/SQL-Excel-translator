@@ -11,7 +11,6 @@ Need a shorter reference? [SQL cheatsheet](https://github.com/kixwho/PostgreSQL-
 | Convert timestamp to text/string  | DATE_FORMAT(date, '%Y-%m')  | TO_CHAR(date, 'YYYY-MM')  | =TEXT(A2,"yyyy-mm-dd")  |
 | Conditional Logic  | **CASE** WHEN A>5 THEN 'High' ELSE 'Low' END  |   | =**IF**(A2>5, "High", "Low")  |
 | Find values missing from another table  | WHERE NOT EXISTS (**anti-join**\*)  |   | Manual filtering  |
-| Unexpected JOIN row multiplication (fanout)  | Check **PRIMARY KEY** / key uniqueness before JOIN  |   | Lookup functions **assume** single, unique match  |
 | [Look up across tables](#-a-special-note-on-excel-lookup-and-sql-join)  | JOIN (or subquery)  |   | XLOOKUP/VLOOKUP  |
 | Wildcard (any number of characters)  | WHERE Singer LIKE **'S%'**  |   | =COUNTIF(Singer,**"S\*"**)  |
 | Wildcard (exactly one character)  | WHERE Singer LIKE **'_____'**  |   | =COUNTIF(Singer,**"?????"**)  |
@@ -24,7 +23,10 @@ Need a shorter reference? [SQL cheatsheet](https://github.com/kixwho/PostgreSQL-
 
 \* Unlike Excel blanks, SQL NULLs can affect comparison logic. Anti-joins avoid these issues and are robust to NULLs.
 
-## 🛠️ 
+## 🛠️ Quick Help for JOIN Fanout
+| Task | SQL | SQL Dialect (default=PostgreSQL)  | Excel |
+| ------------- | ------------- | ------------- | ------------- |
+| Unexpected JOIN row multiplication  | Check **PRIMARY KEY** / key uniqueness before JOIN  |   | Lookup functions **assume** single, unique match  |
 
 ## 🤔 A special note on Excel Lookup and SQL JOIN
 Intuitively, Excel's Lookup functions are actually closer in feeling to a SQL subquery. The underlying logic is almost identical. A formula such as
