@@ -24,7 +24,7 @@ Need a shorter reference? [SQL cheatsheet](https://github.com/kixwho/PostgreSQL-
 
 \* Unlike Excel blanks, SQL NULLs can affect comparison logic. Anti-joins avoid these issues and are robust to NULLs.
 
-
+## 🛠️ 
 
 ## 🤔 A special note on Excel Lookup and SQL JOIN
 Intuitively, Excel's Lookup functions are actually closer in feeling to a SQL subquery. The underlying logic is almost identical. A formula such as
