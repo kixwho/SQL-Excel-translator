@@ -48,7 +48,7 @@ Need a shorter reference? [SQL cheatsheet](https://github.com/kixwho/PostgreSQL-
 - [ ] Repeated clusters → strong clue that JOIN may have fanned out
 - [ ] Confirm by checking table grain and **key uniqueness**
 
-Excel users are familiar with #SPILL! errors: a formula returns more results than expected, and Excel forces you to resolve the shape mismatch. SQL behaves differently. JOINs can silently expand rows because returning multiple matches is a perfectly valid relational operation. Subqueries are not immune, although they make it harder to fanout -- a subquery will sometimes error if there's a shape mismatch (depends on the query).
+Excel users are familiar with #SPILL! errors: a formula returns more results than expected, and Excel forces you to resolve the shape mismatch. SQL behaves differently. JOINs can silently expand rows because returning multiple matches is a perfectly valid relational operation. Subqueries are not immune, although they make it harder to fanout...
 
 Ultimately an analyst's responsibility shifts from fixing errors to understanding table relationships.
 
