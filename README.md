@@ -52,7 +52,7 @@ Excel users are familiar with #SPILL! errors: a formula returns more results tha
 
 Ultimately an analyst's responsibility shifts from fixing errors to understanding table relationships.
 
-[My repo on Fanout]()
+[My repo on Fanout](https://github.com/kixwho/Fanout)
 
 ## 🤔 A special note on Excel Lookup and SQL JOIN
 Intuitively, Excel's Lookup functions are actually closer in feeling to a SQL subquery. The underlying logic is almost identical. A formula such as
