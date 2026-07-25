@@ -23,10 +23,16 @@ Need a shorter reference? [SQL cheatsheet](https://github.com/kixwho/PostgreSQL-
 
 \* Unlike Excel blanks, SQL NULLs can affect comparison logic. Anti-joins avoid these issues and are robust to NULLs.
 
+<br>
+
 ## 🛠️ Quick Help for JOIN Fanout
 |  | SQL JOIN | Excel |
 | ------------- | ------------- | ------------- |
-| Behavior  | Unexpected   | Lookup functions **assume** single, unique match  |
+| Behavior  | Unexpected row multiplication after JOIN  | Lookup functions assume single, unique match  |
+| Visual Clues (use the query below to isolate problematic keys)  | Nearly identical rows clustered right next to each other  |   |
+| Fix  | Match table granularity. Tables with composite key (or event tables) especially vulnerable  |   |
+| Failure Mode  | **No error, valid-looking wrong answer**  | Errors such as #SPILL!  |
+| Habit for Success  | Checking visually not sustainable. Need to understand table logic  | Often working visually, shape mismatch immediately visible  |
 
 ## 🤔 A special note on Excel Lookup and SQL JOIN
 Intuitively, Excel's Lookup functions are actually closer in feeling to a SQL subquery. The underlying logic is almost identical. A formula such as
