@@ -12,7 +12,7 @@ Need a shorter reference? [SQL cheatsheet](https://github.com/kixwho/PostgreSQL-
 | Convert timestamp to text/string  | DATE_FORMAT(date, '%Y-%m')  | TO_CHAR(date, 'YYYY-MM')  | =TEXT(A2,"yyyy-mm-dd")  |
 | Conditional Logic  | **CASE** WHEN A>5 THEN 'High' ELSE 'Low' END  |   | =**IF**(A2>5, "High", "Low")  |
 | Find values missing from another table  | WHERE NOT EXISTS (**anti-join**\*)  |   | Manual filtering  |
-| [Look up across tables](#-a-special-note-on-excel-lookup-and-sql-join)  | JOIN (or subquery) [Troubleshoot my JOIN](#join-fanout)  |   | XLOOKUP/VLOOKUP  |
+| [Look up across tables](#-a-special-note-on-excel-lookup-and-sql-join)  | JOIN (or subquery) [⚠️ Common trap](#join-fanout)  |   | XLOOKUP/VLOOKUP  |
 | Wildcard (any number of characters)  | WHERE Singer LIKE **'S%'**  |   | =COUNTIF(Singer,**"S\*"**)  |
 | Wildcard (exactly one character)  | WHERE Singer LIKE **'_____'**  |   | =COUNTIF(Singer,**"?????"**)  |
 | Substring  | **SUBSTR**(A, 4, 2)  |   | =**MID**(A2, 4, 2)  |
