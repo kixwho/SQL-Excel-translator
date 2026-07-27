@@ -2,6 +2,8 @@
 
 Need a shorter reference? [SQL cheatsheet](https://github.com/kixwho/PostgreSQL-cheatsheet)
 
+If this repo helped you, please consider giving it a ⭐. It helps me showcase my work :)
+
 | Task | SQL | SQL Dialect (default=PostgreSQL)  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
 | Moving average (e.g. 5-day) | **AVG**(price) **OVER** (ORDER BY date ROWS BETWEEN 4 PRECEDING AND CURRENT ROW) |  | =AVERAGE(A2:A6) → drag down |
