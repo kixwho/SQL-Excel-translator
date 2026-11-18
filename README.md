@@ -6,23 +6,27 @@ If this repo helped you, please consider giving it a ⭐. It helps me showcase m
 
 | Task | SQL | SQL Dialect (default=PostgreSQL)  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
+| **CALCULATIONS** |  |  |  |
 | Moving average (e.g. 5-day) | **AVG**(price) **OVER** (ORDER BY date ROWS BETWEEN 4 PRECEDING AND CURRENT ROW) |  | =AVERAGE(A2:A6) → drag down |
-| Latest record | **ROW_NUMBER() OVER** (PARTITION BY id ORDER BY date DESC) → WHERE rn = 1 |  | Manual sort → keep first record |
 | Percentage share of total | ROUND(sales / **SUM**(sales) **OVER ()** *100, 2) |  | =[@Sales]/SUM(Table1[Sales]) → click % button |
+| Common ratio  | ROUND(col_A ***1.0** / **NULLIF**(col_B, 0), 2)  |   | =A2/B2 → IFERROR  |
+| Average  | **AVG**(col)  |   | =**AVERAGE**(A:A)  |
+| Rounding (same)  | ROUND(col, 2)  |   | =ROUND(A2, 2)  |
+| **DATA LOGIC** |  |  |  |
 | Conditional aggregation  | SUM(CASE WHEN retention = TRUE THEN 1 ELSE 0 END)  | COUNT(*) **FILTER** (WHERE retention = TRUE)  | =**COUNTIF**(A:A, TRUE)  |
-| Convert timestamp to text/string  | DATE_FORMAT(date, '%Y-%m')  | TO_CHAR(date, 'YYYY-MM')  | =TEXT(A2,"yyyy-mm-dd")  |
 | Conditional Logic  | **CASE** WHEN A>5 THEN 'High' ELSE 'Low' END  |   | =**IF**(A2>5, "High", "Low")  |
 | Find values missing from another table (**anti-join**\*)  | **WHERE NOT EXISTS** (SELECT 1 FROM table_2 WHERE table_1.id = table_2.id) |   | Manual filtering  |
 | [Look up across tables](#-a-special-note-on-excel-lookup-and-sql-join)  | JOIN (or subquery) [⚠️ Common trap](#quick-help-for-join-fanout)  |   | XLOOKUP/VLOOKUP  |
+| **DATE & TIME** |  |  |  |
+| Latest record | **ROW_NUMBER() OVER** (PARTITION BY id ORDER BY date DESC) → WHERE rn = 1 |  | Manual sort → keep first record |
+| Convert timestamp to text/string  | DATE_FORMAT(date, '%Y-%m')  | TO_CHAR(date, 'YYYY-MM')  | =TEXT(A2,"yyyy-mm-dd")  |
 | **TEXT OPERATIONS**  |   |   |
 | String concatenation - Horizontal  | **CONCAT**(first_name, ' ', last_name)  | first_name \|\| ' ' \|\| last_name  | =A2 **&** " - " & B2  |
 | String concatenation - Vertical  | **STRING_AGG**(col, ', ')  | GROUP_CONCAT (MySQL only)  | TEXTJOIN  |
 | Wildcard (any number of characters)  | WHERE Singer LIKE **'S%'**  |   | =COUNTIF(Singer,**"S\*"**)  |
 | Wildcard (exactly one character)  | WHERE Singer LIKE **'_____'**  |   | =COUNTIF(Singer,**"?????"**)  |
 | Substring  | **SUBSTRING**(col_A, 4, 2)  |   | =**MID**(A2, 4, 2)  |
-| Common ratio calculation  | ROUND(col_A ***1.0** / **NULLIF**(col_B, 0), 2)  |   | =A2/B2 → IFERROR  |
-| Average  | **AVG**(col)  |   | =**AVERAGE**(A:A)  |
-| Rounding (same)  | ROUND(col, 2)  |   | =ROUND(A2, 2)  |
+| **DATA ORGANIZATION** |  |  |  |
 | Remove duplicates  | DISTINCT  |   | Data ribbon → Remove Duplicates  |
 | Sorting  | ORDER BY  |   | Sort A→Z  |
 | Pivot table  | SELECT Region, SUM(Revenue) GROUP BY Region  |   | "Sum Revenue by Region"  |
