@@ -10,12 +10,13 @@ If this repo helped you, please consider giving it a ⭐. It helps me showcase m
 | Latest record | **ROW_NUMBER() OVER** (PARTITION BY id ORDER BY date DESC) → WHERE rn = 1 |  | Manual sort → keep first record |
 | Percentage share of total | ROUND(sales / **SUM**(sales) **OVER ()** *100, 2) |  | =[@Sales]/SUM(Table1[Sales]) → click % button |
 | Conditional aggregation  | SUM(CASE WHEN retention = TRUE THEN 1 ELSE 0 END)  | COUNT(*) **FILTER** (WHERE retention = TRUE)  | =**COUNTIF**(A:A, TRUE)  |
-| String concatenation - Horizontal  | **CONCAT**(first_name, ' ', last_name)  | A \|\| ' - ' \|\| B  | =A2 **&** " - " & B2  |
-| String concatenation - Vertical  | **STRING_AGG**(col, ', ')  | GROUP_CONCAT (MySQL only)  | TEXTJOIN  |
 | Convert timestamp to text/string  | DATE_FORMAT(date, '%Y-%m')  | TO_CHAR(date, 'YYYY-MM')  | =TEXT(A2,"yyyy-mm-dd")  |
 | Conditional Logic  | **CASE** WHEN A>5 THEN 'High' ELSE 'Low' END  |   | =**IF**(A2>5, "High", "Low")  |
 | Find values missing from another table (**anti-join**\*)  | **WHERE NOT EXISTS** (SELECT 1 FROM table_2 WHERE table_1.id = table_2.id) |   | Manual filtering  |
 | [Look up across tables](#-a-special-note-on-excel-lookup-and-sql-join)  | JOIN (or subquery) [⚠️ Common trap](#quick-help-for-join-fanout)  |   | XLOOKUP/VLOOKUP  |
+| **TEXT OPERATIONS**  |   |   |
+| String concatenation - Horizontal  | **CONCAT**(first_name, ' ', last_name)  | first_name \|\| ' ' \|\| last_name  | =A2 **&** " - " & B2  |
+| String concatenation - Vertical  | **STRING_AGG**(col, ', ')  | GROUP_CONCAT (MySQL only)  | TEXTJOIN  |
 | Wildcard (any number of characters)  | WHERE Singer LIKE **'S%'**  |   | =COUNTIF(Singer,**"S\*"**)  |
 | Wildcard (exactly one character)  | WHERE Singer LIKE **'_____'**  |   | =COUNTIF(Singer,**"?????"**)  |
 | Substring  | **SUBSTRING**(col_A, 4, 2)  |   | =**MID**(A2, 4, 2)  |
