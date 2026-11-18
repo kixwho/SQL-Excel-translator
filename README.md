@@ -18,7 +18,7 @@ If this repo helped you, please consider giving it a ⭐. It helps me showcase m
 | [Look up across tables](#-a-special-note-on-excel-lookup-and-sql-join)  | JOIN (or subquery) [⚠️ Common trap](#quick-help-for-join-fanout)  |   | XLOOKUP/VLOOKUP  |
 | Wildcard (any number of characters)  | WHERE Singer LIKE **'S%'**  |   | =COUNTIF(Singer,**"S\*"**)  |
 | Wildcard (exactly one character)  | WHERE Singer LIKE **'_____'**  |   | =COUNTIF(Singer,**"?????"**)  |
-| Substring  | **SUBSTR**(A, 4, 2)  |   | =**MID**(A2, 4, 2)  |
+| Substring  | **SUBSTRING**(col_A, 4, 2)  |   | =**MID**(A2, 4, 2)  |
 | Common ratio calculation  | ROUND(col_A ***1.0** / **NULLIF**(col_B, 0), 2)  |   | =A2/B2 → IFERROR  |
 | Average  | **AVG**(col)  |   | =**AVERAGE**(A:A)  |
 | Rounding (same)  | ROUND(col, 2)  |   | =ROUND(A2, 2)  |
