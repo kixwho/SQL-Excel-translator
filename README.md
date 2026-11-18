@@ -10,7 +10,7 @@ If this repo helped you, please consider giving it a ⭐. It helps me showcase m
 | Latest record | **ROW_NUMBER() OVER** (PARTITION BY id ORDER BY date DESC) → WHERE rn = 1 |  | Manual sort → keep first record |
 | Percentage share of total | ROUND(sales / **SUM**(sales) **OVER ()** *100, 2) |  | =[@Sales]/SUM(Table1[Sales]) → click % button |
 | Conditional aggregation  | SUM(CASE WHEN retention = TRUE THEN 1 ELSE 0 END)  | COUNT(*) **FILTER** (WHERE retention = TRUE)  | =**COUNTIF**(A:A, TRUE)  |
-| String concatenation - Horizontal  | **CONCAT**(A, ' - ', B)  | A \|\| ' - ' \|\| B  | =A2 **&** " - " & B2  |
+| String concatenation - Horizontal  | **CONCAT**(first_name, ' ', last_name)  | A \|\| ' - ' \|\| B  | =A2 **&** " - " & B2  |
 | String concatenation - Vertical  | **STRING_AGG**(col, ', ')  | GROUP_CONCAT (MySQL only)  | TEXTJOIN  |
 | Convert timestamp to text/string  | DATE_FORMAT(date, '%Y-%m')  | TO_CHAR(date, 'YYYY-MM')  | =TEXT(A2,"yyyy-mm-dd")  |
 | Conditional Logic  | **CASE** WHEN A>5 THEN 'High' ELSE 'Low' END  |   | =**IF**(A2>5, "High", "Low")  |
