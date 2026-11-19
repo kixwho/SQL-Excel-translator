@@ -20,6 +20,7 @@ If this repo helped you, please consider giving it a ⭐. It helps me showcase m
 | **DATE & TIME** |  |  |  |
 | Latest record | **ROW_NUMBER() OVER** (PARTITION BY id ORDER BY date DESC) → WHERE rn = 1 |  | Manual sort → keep first record |
 | Convert timestamp to text/string  | DATE_FORMAT(date, '%Y-%m')  | TO_CHAR(date, 'YYYY-MM')  | =TEXT(A2,"yyyy-mm-dd")  |
+| Date arithmetic | date_col + INTERVAL 1 DAY | date_col + INTERVAL '1 DAY' | =A2+1 |
 | **TEXT OPERATIONS**  |   |   |
 | String concatenation - Horizontal  | **CONCAT**(first_name, ' ', last_name)  | first_name \|\| ' ' \|\| last_name  | =A2 **&** " - " & B2  |
 | String concatenation - Vertical  | **STRING_AGG**(col, ', ')  | GROUP_CONCAT (MySQL only)  | TEXTJOIN  |
