@@ -28,6 +28,7 @@ If this repo helped you, please consider giving it a ⭐. It helps me showcase m
 | Wildcard (exactly one character)  | WHERE Singer LIKE **'_____'**  |   | =COUNTIF(Singer,**"?????"**)  |
 | Substring  | **SUBSTRING**(col_A, 4, 2)  |   | =**MID**(A2, 4, 2)  |
 | **DATA ORGANIZATION** |  |  |  |
+| Filter for customers with only one order | GROUP BY customer_id HAVING COUNT(order_id) = 1 |  | Helper column → Filter |
 | Remove duplicates  | DISTINCT  |   | Data ribbon → Remove Duplicates  |
 | Sorting  | ORDER BY  |   | Sort A→Z  |
 | Pivot table  | SELECT Region, SUM(Revenue) GROUP BY Region  |   | "Sum Revenue by Region"  |
