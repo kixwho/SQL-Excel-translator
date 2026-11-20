@@ -7,9 +7,9 @@ If this repo helped you, please consider giving it a ⭐. It helps me showcase m
 | Task | SQL | SQL Dialect (default=PostgreSQL)  | Excel |
 | ------------- | ------------- | ------------- | ------------- |
 | **CALCULATIONS** |  |  |  |
-| Moving average (e.g. 5-day) | **AVG**(price) **OVER** (ORDER BY date ROWS BETWEEN 4 PRECEDING AND CURRENT ROW) |  | =AVERAGE(A2:A6) → drag down |
-| Percentage share of total | ROUND(sales / **SUM**(sales) **OVER ()** *100, 2) |  | =[@Sales]/SUM(Table1[Sales]) → click % button |
-| Common ratio  | ROUND(col_A ***1.0** / **NULLIF**(col_B, 0), 2)  |   | =A2/B2 → IFERROR  |
+| Moving average (e.g. 5-day) | **AVG**(price) **OVER** (ORDER BY date <br> ROWS BETWEEN 4 PRECEDING AND CURRENT ROW) |  | =AVERAGE(A2:A6) → drag down |
+| Percentage share of total | ROUND(<br> sales / **SUM**(sales) **OVER ()** *100, 2) |  | =[@Sales]/SUM(Table1[Sales]) → click % button |
+| Common ratio  | ROUND(<br> col_A ***1.0** / **NULLIF**(col_B, 0), 2)  |   | =A2/B2 → IFERROR  |
 | Average  | **AVG**(col)  |   | =**AVERAGE**(A:A)  |
 | Rounding (same)  | ROUND(col, 2)  |   | =ROUND(A2, 2)  |
 | **DATA LOGIC** |  |  |  |
@@ -26,12 +26,13 @@ If this repo helped you, please consider giving it a ⭐. It helps me showcase m
 | String concatenation - Vertical  | **STRING_AGG**(col, ', ')  | GROUP_CONCAT (MySQL only)  | TEXTJOIN  |
 | Wildcard (any number of characters)  | WHERE Singer LIKE **'S%'**  |   | =COUNTIF(Singer,**"S\*"**)  |
 | Wildcard (exactly one character)  | WHERE Singer LIKE **'_____'**  |   | =COUNTIF(Singer,**"?????"**)  |
+| Case conversion | **UPPER**(SUBSTRING(name, 1, 1) <br> **LOWER**(email) | INITCAP (Capitalizes 1st letter of every word) | =UPPER(A2) <br> 	=LOWER(A2) <br> =PROPER(A2) |
 | Substring  | **SUBSTRING**(col_A, 4, 2)  |   | =**MID**(A2, 4, 2)  |
 | **DATA ORGANIZATION** |  |  |  |
-| Filter for customers with only one order | GROUP BY customer_id HAVING COUNT(order_id) = 1 |  | Helper column → Filter |
+| Filter for customers with only one order | GROUP BY customer_id <br> **HAVING** COUNT(order_id) = 1 |  | Helper column → Filter |
 | Remove duplicates  | DISTINCT  |   | Data ribbon → Remove Duplicates  |
 | Sorting  | ORDER BY  |   | Sort A→Z  |
-| Pivot table  | SELECT Region, SUM(Revenue) GROUP BY Region  |   | "Sum Revenue by Region"  |
+| Pivot table  | SELECT Region, SUM(Revenue) <br> GROUP BY Region  |   | "Sum Revenue by Region"  |
 
 \* Unlike Excel blanks, SQL NULLs can affect comparison logic. Anti-joins avoid these issues and are robust to NULLs.
 
