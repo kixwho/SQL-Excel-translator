@@ -11,14 +11,16 @@ If this repo helped you, please consider giving it a ⭐. It helps me showcase m
 | Percentage share of total | ROUND(<br> sales / **SUM**(sales) **OVER ()** *100, 2) |  | =[@Sales]/SUM(Table1[Sales]) → click % button |
 | Common ratio  | ROUND(<br> col_A ***1.0** / **NULLIF**(col_B, 0), 2)  |   | =A2/B2 → IFERROR  |
 | Average  | **AVG**(col)  |   | =**AVERAGE**(A:A)  |
-| Rounding (same)  | ROUND(col, 2)  |   | =ROUND(A2, 2)  |
+| Rounding  | ROUND(col, 2)  |   | =ROUND(A2, 2)  |
 | **DATA LOGIC** |  |  |  |
 | Conditional aggregation  | SUM(CASE WHEN retention = TRUE THEN 1 ELSE 0 END)  | COUNT(*) **FILTER** (WHERE retention = TRUE)  | =**COUNTIF**(A:A, TRUE)  |
 | Conditional Logic  | **CASE** WHEN A>5 THEN 'High' ELSE 'Low' END  |   | =**IF**(A2>5, "High", "Low")  |
 | Find values missing from another table (**anti-join**\*)  | **WHERE NOT EXISTS** (SELECT 1 FROM table_2 WHERE table_1.id = table_2.id) |   | Manual filtering  |
+| Find duplicates (**self-join**) | FROM customers c1 <br> JOIN customers c2 <br> ON c1.email=c2.email AND c1.id>c2.id | FROM customers c1 <br> WHERE EXISTS <br> (SELECT 1 FROM customers c2 WHERE c1.email=c2.email AND c1.id>c2.id) | Conditional Formatting → <br> Highlight Cells Rules → <br> Duplicate Values |
 | [Look up across tables](#-a-special-note-on-excel-lookup-and-sql-join)  | JOIN (or subquery) [⚠️ Common trap](#quick-help-for-join-fanout)  |   | XLOOKUP/VLOOKUP  |
+| Latest record - <br> Subquery | **WHERE** (id, date) **IN** <br> (SELECT id, MAX(date) FROM orders GROUP BY id) |  | Helper table → lookup |
 | **DATE & TIME** |  |  |  |
-| Latest record | **ROW_NUMBER() OVER** (PARTITION BY id ORDER BY date DESC) → WHERE rn = 1 |  | Manual sort → keep first record |
+| Latest record - <br> Window function | **ROW_NUMBER() OVER** (PARTITION BY id ORDER BY date DESC) → WHERE rn = 1 |  | Sort by id + date → remove duplicates by id |
 | Convert timestamp to text/string  | DATE_FORMAT(date, '%Y-%m')  | TO_CHAR(date, 'YYYY-MM')  | =TEXT(A2,"yyyy-mm-dd")  |
 | Date arithmetic | date_col + INTERVAL 1 DAY | date_col + INTERVAL '1 DAY' | =A2+1 |
 | **TEXT OPERATIONS**  |   |   |
